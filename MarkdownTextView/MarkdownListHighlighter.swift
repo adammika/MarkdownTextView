@@ -20,11 +20,11 @@ public final class MarkdownListHighlighter: HighlighterType {
     /**
      Creates a new instance of the receiver.
     
-     - parameters:
+     - Parameters:
        - markerPatter: Regular expression pattern to use for matching list markers.
        - attributes: Attributes to apply to the entire list.
        - itemAttributes: Attributes to apply to list items (excluding list markers)
-     - returns: An initialized instance of the receiver.
+     - Returns: An initialized instance of the receiver.
     */
     public init(markerPattern: String, attributes: TextAttributes?, itemAttributes: TextAttributes?) {
         self.regularExpression = listItemRegex(pattern: markerPattern)

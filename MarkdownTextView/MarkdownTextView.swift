@@ -16,11 +16,11 @@ public class MarkdownTextView: UITextView {
     /**
      Creates a new instance of the receiver.
     
-     - parameters:
+     - Parameters:
        - frame: The view frame.
        - textStorage: The text storage. This can be customized by the caller to customize text attributes an add
         additional highlighters if the defaults are not suitable.
-     - returns: An initialized instance of the receiver.
+     - Returns: An initialized instance of the receiver.
     */
     public init(frame: CGRect, textStorage: MarkdownTextStorage = MarkdownTextStorage()) {
         let textContainer = NSTextContainer()

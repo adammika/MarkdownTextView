@@ -20,8 +20,8 @@ public final class MarkdownHeaderHighlighter: HighlighterType {
     /**
     Creates a new instance of the receiver.
     
-     - parameter attributes: Attributes to apply to Markdown headers.
-     - returns: An initialized instance of the receiver.
+     - Parameter attributes: Attributes to apply to Markdown headers.
+     - Returns: An initialized instance of the receiver.
     */
     public init(attributes: MarkdownAttributes.HeaderAttributes) {
         self.attributes = attributes

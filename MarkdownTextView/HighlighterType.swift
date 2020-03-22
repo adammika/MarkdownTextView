@@ -15,6 +15,7 @@ import UIKit
 public protocol HighlighterType {
     
     /// Highlights the text in given NSAttributedString
-    /// - parameter attributedString: AttributedString to apply highlight.
+    /// 
+    /// - Parameter attributedString: AttributedString to apply highlight.
     func highlight(attributedString: NSMutableAttributedString)
 }

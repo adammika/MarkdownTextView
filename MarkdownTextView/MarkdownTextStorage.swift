@@ -20,8 +20,8 @@ public class MarkdownTextStorage: HighlighterTextStorage {
     /**
      Creates a new instance of the receiver.
     
-     - parameter attributes: Attributes used to style the text.
-     - returns: An initialized instance of the receiver.
+     - Parameter attributes: Attributes used to style the text.
+     - Returns: An initialized instance of the receiver.
     */
     public init(attributes: MarkdownAttributes = MarkdownAttributes()) {
         self.attributes = attributes

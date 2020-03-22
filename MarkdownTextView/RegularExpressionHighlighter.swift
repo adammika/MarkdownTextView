@@ -20,10 +20,10 @@ public class RegularExpressionHighlighter: HighlighterType {
     /**
      Creates a new instance of the receiver.
     
-     - parameters:
+     - Parameters:
        - regularExpression: The regular expression to use for matching text to highlight.
        - attributes: The attributes applied to matching text ranges
-     - returns:An initialized instance of the receiver.
+     - Returns:An initialized instance of the receiver.
     */
     public init(regularExpression: NSRegularExpression, attributes: TextAttributes) {
         self.regularExpression = regularExpression

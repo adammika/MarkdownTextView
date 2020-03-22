@@ -19,8 +19,8 @@ public final class MarkdownStrikethroughHighlighter: HighlighterType {
     /**
      Creates a new instance of the receiver.
     
-     - parameter attributes: Optional additional attributes to apply to strikethrough text.
-     - returns: An initialized instance of the receiver.
+     - Parameter attributes: Optional additional attributes to apply to strikethrough text.
+     - Returns: An initialized instance of the receiver.
     */
     public init(attributes: TextAttributes? = nil) {
         self.attributes = attributes

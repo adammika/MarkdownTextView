@@ -31,7 +31,7 @@ public class HighlighterTextStorage: NSTextStorage {
     
      Highlighters are invoked in the order in which they are added.
     
-     - parameter highlighter: The highlighter to add.
+     - Parameter highlighter: The highlighter to add.
     */
     public func add(highlighter: HighlighterType) {
         highlighters.append(highlighter)
