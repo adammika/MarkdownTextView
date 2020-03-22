@@ -14,7 +14,7 @@ import UIKit
 */
 public struct MarkdownAttributes {
     public var defaultAttributes: TextAttributes = [
-        NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        .font: UIFont.preferredFont(forTextStyle: .body)
     ]
     
     public var strongAttributes: TextAttributes?
@@ -22,31 +22,31 @@ public struct MarkdownAttributes {
     
     public struct HeaderAttributes {
         public var h1Attributes: TextAttributes? = [
-            NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+            .font: UIFont.preferredFont(forTextStyle: .largeTitle)
         ]
         
         public var h2Attributes: TextAttributes? = [
-            NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+            .font: UIFont.preferredFont(forTextStyle: .title1)
         ]
         
         public var h3Attributes: TextAttributes? = [
-            NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+            .font: UIFont.preferredFont(forTextStyle: .title2)
         ]
         
         public var h4Attributes: TextAttributes? = [
-            NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+            .font: UIFont.preferredFont(forTextStyle: .title3)
         ]
         
         public var h5Attributes: TextAttributes? = [
-            NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+            .font: UIFont.preferredFont(forTextStyle: .headline)
         ]
         
         public var h6Attributes: TextAttributes? = [
-            NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+            .font: UIFont.preferredFont(forTextStyle: .subheadline)
         ]
         
-        func attributesForHeaderLevel(level: Int) -> TextAttributes? {
-            switch level {
+        func attributes(headerLevel: Int) -> TextAttributes? {
+            switch headerLevel {
             case 1: return h1Attributes
             case 2: return h2Attributes
             case 3: return h3Attributes
@@ -63,39 +63,39 @@ public struct MarkdownAttributes {
     public var headerAttributes: HeaderAttributes? = HeaderAttributes()
     
     private static let MonospaceFont: UIFont = {
-        let bodyFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        let bodyFont = UIFont.preferredFont(forTextStyle: .body)
         let size = bodyFont.pointSize
         return UIFont(name: "Menlo", size: size) ?? UIFont(name: "Courier", size: size) ?? bodyFont
     }()
     
     public var codeBlockAttributes: TextAttributes? = [
-        NSFontAttributeName: MarkdownAttributes.MonospaceFont
+        .font: MarkdownAttributes.MonospaceFont
     ]
     
     public var inlineCodeAttributes: TextAttributes? = [
-        NSFontAttributeName: MarkdownAttributes.MonospaceFont
+        .font: MarkdownAttributes.MonospaceFont
     ]
     
     public var blockQuoteAttributes: TextAttributes? = [
-        NSForegroundColorAttributeName: UIColor.darkGrayColor()
+        .foregroundColor: UIColor.darkGray
     ]
     
     public var orderedListAttributes: TextAttributes? = [
-        NSFontAttributeName: fontWithTraits(.TraitBold, font: UIFont.preferredFontForTextStyle(UIFontTextStyleBody))
+        .font: font(traits: .traitBold, font: UIFont.preferredFont(forTextStyle: .body))
     ]
     
     public var orderedListItemAttributes: TextAttributes? = [
-        NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleBody),
-        NSForegroundColorAttributeName: UIColor.darkGrayColor()
+        .font: UIFont.preferredFont(forTextStyle: .body),
+        .foregroundColor: UIColor.darkGray
     ]
     
     public var unorderedListAttributes: TextAttributes? = [
-        NSFontAttributeName: fontWithTraits(.TraitBold, font: UIFont.preferredFontForTextStyle(UIFontTextStyleBody))
+        .font: font(traits: .traitBold, font: UIFont.preferredFont(forTextStyle: .body))
     ]
     
     public var unorderedListItemAttributes: TextAttributes? = [
-        NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleBody),
-        NSForegroundColorAttributeName: UIColor.darkGrayColor()
+        .font: UIFont.preferredFont(forTextStyle: .body),
+        .foregroundColor: UIColor.darkGray
     ]
     
     public init() {}

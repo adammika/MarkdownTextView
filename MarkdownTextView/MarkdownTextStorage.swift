@@ -29,11 +29,11 @@ public class MarkdownTextStorage: HighlighterTextStorage {
         commonInit()
         
         if let headerAttributes = attributes.headerAttributes {
-            addHighlighter(MarkdownHeaderHighlighter(attributes: headerAttributes))
+            add(highlighter: MarkdownHeaderHighlighter(attributes: headerAttributes))
         }
-        addHighlighter(MarkdownLinkHighlighter())
-        addHighlighter(MarkdownListHighlighter(markerPattern: "[*+-]", attributes: attributes.unorderedListAttributes, itemAttributes: attributes.unorderedListItemAttributes))
-        addHighlighter(MarkdownListHighlighter(markerPattern: "\\d+[.]", attributes: attributes.orderedListAttributes, itemAttributes: attributes.orderedListItemAttributes))
+        add(highlighter:MarkdownLinkHighlighter())
+        add(highlighter:MarkdownListHighlighter(markerPattern: "[*+-]", attributes: attributes.unorderedListAttributes, itemAttributes: attributes.unorderedListItemAttributes))
+        add(highlighter:MarkdownListHighlighter(markerPattern: "\\d+[.]", attributes: attributes.orderedListAttributes, itemAttributes: attributes.orderedListItemAttributes))
         
         // From markdown.pl v1.0.1 <http://daringfireball.net/projects/markdown/>
         
@@ -51,10 +51,10 @@ public class MarkdownTextStorage: HighlighterTextStorage {
         addPattern("^(?:.+)[ \t]*\n-+[ \t]*\n+", attributes.headerAttributes?.h2Attributes)
         
         // Emphasis
-        addPattern("(\\*|_)(?=\\S)(.+?)(?<=\\S)\\1", attributesForTraits(.TraitItalic, attributes.emphasisAttributes))
+        addPattern("(\\*|_)(?=\\S)(.+?)(?<=\\S)\\1", self.attributes(traits: .traitItalic, attributes.emphasisAttributes))
         
         // Strong
-        addPattern("(\\*\\*|__)(?=\\S)(?:.+?[*_]*)(?<=\\S)\\1", attributesForTraits(.TraitBold, attributes.strongAttributes))
+        addPattern("(\\*\\*|__)(?=\\S)(?:.+?[*_]*)(?<=\\S)\\1", self.attributes(traits: .traitBold, attributes.strongAttributes))
         
         // Inline code
         addPattern("(`+)(?:.+?)(?<!`)\\1(?!`)", attributes.inlineCodeAttributes)
@@ -72,17 +72,18 @@ public class MarkdownTextStorage: HighlighterTextStorage {
     
     // MARK: Helpers
     
-    private func addPattern(pattern: String, _ attributes: TextAttributes?) {
+    private func addPattern(_ pattern: String, _ attributes: TextAttributes?) {
         if let attributes = attributes {
-            let highlighter = RegularExpressionHighlighter(regularExpression: regexFromPattern(pattern), attributes: attributes)
-            addHighlighter(highlighter)
+            let highlighter = RegularExpressionHighlighter(regularExpression: regex(pattern: pattern), attributes: attributes)
+            add(highlighter:highlighter)
         }
     }
     
-    private func attributesForTraits(traits: UIFontDescriptorSymbolicTraits, var _ attributes: TextAttributes?) -> TextAttributes? {
-        if let defaultFont = defaultAttributes[NSFontAttributeName] as? UIFont where attributes == nil {
+    private func attributes(traits: UIFontDescriptor.SymbolicTraits, _ attributes: TextAttributes?) -> TextAttributes? {
+        var attributes = attributes
+        if let defaultFont = defaultAttributes[.font] as? UIFont, attributes == nil {
             attributes = [
-                NSFontAttributeName: fontWithTraits(traits, font: defaultFont)
+                .font: font(traits: traits, font: defaultFont)
             ]
         }
         return attributes

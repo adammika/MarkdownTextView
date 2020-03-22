@@ -12,7 +12,7 @@ import UIKit
 *  Highlights ~~strikethrough~~ in Markdown text (unofficial extension)
 */
 public final class MarkdownStrikethroughHighlighter: HighlighterType {
-    private static let StrikethroughRegex = regexFromPattern("(~~)(?=\\S)(.+?)(?<=\\S)\\1")
+    private static let StrikethroughRegex = regex(pattern: "(~~)(?=\\S)(.+?)(?<=\\S)\\1")
     private let attributes: TextAttributes?
     
     /**
@@ -29,17 +29,17 @@ public final class MarkdownStrikethroughHighlighter: HighlighterType {
     
     // MARK: HighlighterType
     
-    public func highlightAttributedString(attributedString: NSMutableAttributedString) {
-        enumerateMatches(self.dynamicType.StrikethroughRegex, string: attributedString.string) {
+    public func highlight(attributedString: NSMutableAttributedString) {
+        enumerateMatches(regex: type(of: self).StrikethroughRegex, string: attributedString.string) {
             var strikethroughAttributes: TextAttributes = [
-                NSStrikethroughStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue
+            .strikethroughStyle: NSUnderlineStyle.single.rawValue
             ]
             if let attributes = self.attributes {
                 for (key, value) in attributes {
                     strikethroughAttributes[key] = value
                 }
             }
-            attributedString.addAttributes(strikethroughAttributes, range: $0.rangeAtIndex(2))
+            attributedString.addAttributes(strikethroughAttributes, range: $0.range(at: 2))
         }
     }
 }

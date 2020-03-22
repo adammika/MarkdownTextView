@@ -33,8 +33,8 @@ public class RegularExpressionHighlighter: HighlighterType {
     
     // MARK: HighlighterType
     
-    public func highlightAttributedString(attributedString: NSMutableAttributedString) {
-        enumerateMatches(regularExpression, string: attributedString.string) {
+    public func highlight(attributedString: NSMutableAttributedString) {
+        enumerateMatches(regex: regularExpression, string: attributedString.string) {
             attributedString.addAttributes(self.attributes, range: $0.range)
         }
     }
