@@ -9,13 +9,14 @@
 import UIKit
 
 /**
-*  Highlights Markdown links (not including link references)
+ Highlights Markdown links (not including link references)
 */
 public final class MarkdownLinkHighlighter: HighlighterType {
+    
     // From markdown.pl v1.0.1 <http://daringfireball.net/projects/markdown/>
     private static let LinkRegex = regex(pattern:"\\[([^\\[]+)\\]\\([ \t]*<?(.*?)>?[ \t]*((['\"])(.*?)\\4)?\\)")
     
-    // MARK: HighlighterType
+    // MARK: - HighlighterType
     
     public func highlight(attributedString: NSMutableAttributedString) {
         let string = attributedString.string

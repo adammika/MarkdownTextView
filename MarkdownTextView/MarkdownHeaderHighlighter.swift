@@ -12,6 +12,7 @@ import UIKit
 *  Highlights atx-style Markdown headers.
 */
 public final class MarkdownHeaderHighlighter: HighlighterType {
+    
     // From markdown.pl v1.0.1 <http://daringfireball.net/projects/markdown/>
     private static let HeaderRegex = regex(pattern: "^(\\#{1,6})[ \t]*(?:.+?)[ \t]*\\#*\n+")
     private let attributes: MarkdownAttributes.HeaderAttributes
@@ -19,15 +20,14 @@ public final class MarkdownHeaderHighlighter: HighlighterType {
     /**
     Creates a new instance of the receiver.
     
-    :param: attributes Attributes to apply to Markdown headers.
-    
-    :returns: An initialized instance of the receiver.
+     - parameter attributes: Attributes to apply to Markdown headers.
+     - returns: An initialized instance of the receiver.
     */
     public init(attributes: MarkdownAttributes.HeaderAttributes) {
         self.attributes = attributes
     }
     
-    // MARK: HighlighterType
+    // MARK: - HighlighterType
     
     public func highlight(attributedString: NSMutableAttributedString) {
         enumerateMatches(regex: type(of: self).HeaderRegex, string: attributedString.string) {

@@ -9,12 +9,12 @@
 import UIKit
 
 /**
-*  Used with `HighlighterTextStorage` to add support for highlighting
-*  text inside the text storage when the text changes.
+ Used with `HighlighterTextStorage` to add support for highlighting
+ text inside the text storage when the text changes.
 */
 public protocol HighlighterType {
-    /**
-    *  Highlights the text in `attributedString`
-    */
+    
+    /// Highlights the text in given NSAttributedString
+    /// - parameter attributedString: AttributedString to apply highlight.
     func highlight(attributedString: NSMutableAttributedString)
 }

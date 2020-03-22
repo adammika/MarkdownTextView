@@ -9,19 +9,19 @@
 import UIKit
 
 /**
-*  Text storage with support for highlighting Markdown.
+ Text storage with support for highlighting Markdown.
 */
 public class MarkdownTextStorage: HighlighterTextStorage {
+    
     private let attributes: MarkdownAttributes
     
-    // MARK: Initialization
+    // MARK: - Initialization
     
     /**
-    Creates a new instance of the receiver.
+     Creates a new instance of the receiver.
     
-    :param: attributes Attributes used to style the text.
-    
-    :returns: An initialized instance of `MarkdownTextStorage`
+     - parameter attributes: Attributes used to style the text.
+     - returns: An initialized instance of the receiver.
     */
     public init(attributes: MarkdownAttributes = MarkdownAttributes()) {
         self.attributes = attributes
@@ -70,7 +70,7 @@ public class MarkdownTextStorage: HighlighterTextStorage {
         defaultAttributes = attributes.defaultAttributes
     }
     
-    // MARK: Helpers
+    // MARK: - Helpers
     
     private func addPattern(_ pattern: String, _ attributes: TextAttributes?) {
         if let attributes = attributes {

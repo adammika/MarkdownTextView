@@ -9,25 +9,24 @@
 import UIKit
 
 /**
-*  Highlights super^script in Markdown text (unofficial extension)
+ Highlights super^script in Markdown text (unofficial extension)
 */
 public final class MarkdownSuperscriptHighlighter: HighlighterType {
+    
     private static let SuperscriptRegex = regex(pattern: "(\\^+)(?:(?:[^\\^\\s\\(][^\\^\\s]*)|(?:\\([^\n\r\\)]+\\)))")
     private let fontSizeRatio: CGFloat
     
     /**
-    Creates a new instance of the receiver.
+     Creates a new instance of the receiver.
     
-    :param: fontSizeRatio Ratio to multiply the original font
-    size by to calculate the superscript font size.
-    
-    :returns: An initialized instance of the receiver.
+     - parameter fontSizeRatio: Ratio to multiply the original font size by to calculate the superscript font size.
+     - returns: An initialized instance of the receiver.
     */
     public init(fontSizeRatio: CGFloat = 0.7) {
         self.fontSizeRatio = fontSizeRatio
     }
     
-    // MARK: HighlighterType
+    // MARK: - HighlighterType
     
     public func highlight(attributedString: NSMutableAttributedString) {
         var previousRange: NSRange?

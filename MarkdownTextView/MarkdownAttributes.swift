@@ -9,10 +9,11 @@
 import UIKit
 
 /**
-*  Encapsulates the attributes to use for styling various types
-*  of Markdown elements.
+ Encapsulates the attributes to use for styling various types
+ of Markdown elements.
 */
 public struct MarkdownAttributes {
+    
     public var defaultAttributes: TextAttributes = [
         .font: UIFont.preferredFont(forTextStyle: .body)
     ]

@@ -9,21 +9,21 @@
 import UIKit
 
 /**
-*  Highlights 
-*  ```
-*  fenced code
-*  ``` 
-*  blocks in Markdown text.
+ Highlights
+ ```
+ fenced code
+ ```
+ blocks in Markdown text.
 */
 public final class MarkdownFencedCodeHighlighter: RegularExpressionHighlighter {
+    
     private static let FencedCodeRegex = regex(pattern: "^(`{3})(?:.*)?$\n[\\s\\S]*\n\\1$")
     
     /**
     Creates a new instance of the receiver.
     
-    :param: attributes Attributes to apply to fenced code blocks.
-    
-    :returns: A new instance of the receiver.
+     - parameter attributes: Attributes to apply to fenced code blocks.
+     - returns: A new instance of the receiver.
     */
     public init(attributes: TextAttributes) {
         super.init(regularExpression: type(of: self).FencedCodeRegex, attributes: attributes)

@@ -9,10 +9,11 @@
 import UIKit
 
 /**
-*  Text storage with support for automatically highlighting text
-*  as it changes.
+ Text storage with support for automatically highlighting text
+ as it changes.
 */
 public class HighlighterTextStorage: NSTextStorage {
+    
     private let backingStore: NSMutableAttributedString
     private var highlighters = [HighlighterType]()
     
@@ -23,21 +24,21 @@ public class HighlighterTextStorage: NSTextStorage {
         didSet { editedAll(actions: .editedAttributes) }
     }
     
-    // MARK: API
+    // MARK: - API
     
     /**
-    Adds a highlighter to use for highlighting text.
+     Adds a highlighter to use for highlighting text.
     
-    Highlighters are invoked in the order in which they are added.
+     Highlighters are invoked in the order in which they are added.
     
-    :param: highlighter The highlighter to add.
+     - parameter highlighter: The highlighter to add.
     */
     public func add(highlighter: HighlighterType) {
         highlighters.append(highlighter)
         editedAll(actions: .editedAttributes)
     }
     
-    // MARK: Initialization
+    // MARK: - Initialization
     
     public override init() {
         backingStore = NSMutableAttributedString(string: "", attributes: defaultAttributes)
@@ -49,7 +50,7 @@ public class HighlighterTextStorage: NSTextStorage {
         super.init(coder: aDecoder)
     }
     
-    // MARK: NSTextStorage
+    // MARK: - NSTextStorage
     
     public override var string: String {
         return backingStore.string
@@ -70,12 +71,14 @@ public class HighlighterTextStorage: NSTextStorage {
     }
     
     public override func processEditing() {
-        // This is inefficient but necessary because certain
-        // edits can cause formatting changes that span beyond
-        // line or paragraph boundaries. This should be alright
-        // for small amounts of text (which is the use case that
-        // this was designed for), but would need to be optimized
-        // for any kind of heavy editing.
+        /**
+            This is inefficient but necessary because certain
+            edits can cause formatting changes that span beyond
+            line or paragraph boundaries. This should be alright
+            for small amounts of text (which is the use case that
+            this was designed for), but would need to be optimized
+            for any kind of heavy editing.
+        */
         highlight(range: NSRange(location: 0, length: (string as NSString).length))
         super.processEditing()
     }

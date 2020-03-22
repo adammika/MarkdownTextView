@@ -9,16 +9,17 @@
 import UIKit
 
 /**
-*  Highlights URLs.
+ Highlights URLs.
 */
 public final class LinkHighlighter: HighlighterType {
+    
     private var detector: NSDataDetector!
     
     public init() throws {
         detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
     }
     
-    // MARK: HighlighterType
+    // MARK: - HighlighterType
     
     public func highlight(attributedString: NSMutableAttributedString) {
         enumerateMatches(regex: detector, string: attributedString.string) {

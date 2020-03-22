@@ -9,23 +9,22 @@
 import UIKit
 
 /**
-*  Highlights Markdown lists using specifiable marker patterns.
+ Highlights Markdown lists using specifiable marker patterns.
 */
 public final class MarkdownListHighlighter: HighlighterType {
+    
     private let regularExpression: NSRegularExpression
     private let attributes: TextAttributes?
     private let itemAttributes: TextAttributes?
     
     /**
-    Creates a new instance of the receiver.
+     Creates a new instance of the receiver.
     
-    :param: markerPattern  Regular expression pattern to use for matching
-    list markers.
-    :param: attributes     Attributes to apply to the entire list.
-    :param: itemAttributes Attributes to apply to list items (excluding
-    list markers)
-    
-    :returns: An initialized instance of the receiver.
+     - parameters:
+       - markerPatter: Regular expression pattern to use for matching list markers.
+       - attributes: Attributes to apply to the entire list.
+       - itemAttributes: Attributes to apply to list items (excluding list markers)
+     - returns: An initialized instance of the receiver.
     */
     public init(markerPattern: String, attributes: TextAttributes?, itemAttributes: TextAttributes?) {
         self.regularExpression = listItemRegex(pattern: markerPattern)
@@ -33,7 +32,7 @@ public final class MarkdownListHighlighter: HighlighterType {
         self.itemAttributes = itemAttributes
     }
     
-    // MARK: HighlighterType
+    // MARK: - HighlighterType
     
     public func highlight(attributedString: NSMutableAttributedString) {
         if (attributes == nil && itemAttributes == nil) { return }

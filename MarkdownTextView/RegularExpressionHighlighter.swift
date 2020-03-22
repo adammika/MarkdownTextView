@@ -9,29 +9,28 @@
 import UIKit
 
 /**
-*  Highlighter that uses a regular expression to match character
-*  sequences to highlight.
+ Highlighter that uses a regular expression to match character
+ sequences to highlight.
 */
 public class RegularExpressionHighlighter: HighlighterType {
+    
     private let regularExpression: NSRegularExpression
     private let attributes: TextAttributes
     
     /**
-    Creates a new instance of the receiver.
+     Creates a new instance of the receiver.
     
-    :param: regularExpression The regular expression to use for
-    matching text to highlight.
-    :param: attributes        The attributes applied to matching
-    text ranges.
-    
-    :returns: An initialized instance of the receiver.
+     - parameters:
+       - regularExpression: The regular expression to use for matching text to highlight.
+       - attributes: The attributes applied to matching text ranges
+     - returns:An initialized instance of the receiver.
     */
     public init(regularExpression: NSRegularExpression, attributes: TextAttributes) {
         self.regularExpression = regularExpression
         self.attributes = attributes
     }
     
-    // MARK: HighlighterType
+    // MARK: - HighlighterType
     
     public func highlight(attributedString: NSMutableAttributedString) {
         enumerateMatches(regex: regularExpression, string: attributedString.string) {
