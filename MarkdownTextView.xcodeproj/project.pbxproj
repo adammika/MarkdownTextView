@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25133C572428433500FE4D92 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25133C562428433500FE4D92 /* String+Extensions.swift */; };
 		7252E0331AF1BC1D006D0535 /* MarkdownTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7252E0321AF1BC1D006D0535 /* MarkdownTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7252E0391AF1BC1E006D0535 /* MarkdownTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7252E02D1AF1BC1D006D0535 /* MarkdownTextView.framework */; };
 		7252E0401AF1BC1E006D0535 /* MarkdownTextViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E03F1AF1BC1E006D0535 /* MarkdownTextViewTests.swift */; };
@@ -65,6 +66,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		25133C562428433500FE4D92 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		7252E02D1AF1BC1D006D0535 /* MarkdownTextView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarkdownTextView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7252E0311AF1BC1D006D0535 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7252E0321AF1BC1D006D0535 /* MarkdownTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarkdownTextView.h; sourceTree = "<group>"; };
@@ -144,7 +146,6 @@
 		7252E02F1AF1BC1D006D0535 /* MarkdownTextView */ = {
 			isa = PBXGroup;
 			children = (
-				7252E0321AF1BC1D006D0535 /* MarkdownTextView.h */,
 				7252E0491AF1BCD0006D0535 /* HighlighterTextStorage.swift */,
 				7252E04A1AF1BCD0006D0535 /* HighlighterType.swift */,
 				7252E04B1AF1BCD0006D0535 /* LinkHighlighter.swift */,
@@ -156,10 +157,12 @@
 				7252E0511AF1BCD0006D0535 /* MarkdownStrikethroughHighlighter.swift */,
 				7252E0521AF1BCD0006D0535 /* MarkdownSuperscriptHighlighter.swift */,
 				7252E0531AF1BCD0006D0535 /* MarkdownTextStorage.swift */,
+				7252E0321AF1BC1D006D0535 /* MarkdownTextView.h */,
 				7252E0541AF1BCD0006D0535 /* MarkdownTextView.swift */,
 				7252E0551AF1BCD0006D0535 /* RegularExpressionHighlighter.swift */,
-				7252E0561AF1BCD0006D0535 /* TextUtilities.swift */,
+				25133C562428433500FE4D92 /* String+Extensions.swift */,
 				7252E0301AF1BC1D006D0535 /* Supporting Files */,
+				7252E0561AF1BCD0006D0535 /* TextUtilities.swift */,
 			);
 			path = MarkdownTextView;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				7252E05C1AF1BCD0006D0535 /* MarkdownHeaderHighlighter.swift in Sources */,
 				7252E0591AF1BCD0006D0535 /* LinkHighlighter.swift in Sources */,
 				7252E05E1AF1BCD0006D0535 /* MarkdownListHighlighter.swift in Sources */,
+				25133C572428433500FE4D92 /* String+Extensions.swift in Sources */,
 				7252E0581AF1BCD0006D0535 /* HighlighterType.swift in Sources */,
 				7252E05F1AF1BCD1006D0535 /* MarkdownStrikethroughHighlighter.swift in Sources */,
 				7252E0611AF1BCD1006D0535 /* MarkdownTextStorage.swift in Sources */,

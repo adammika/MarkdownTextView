@@ -21,11 +21,23 @@ public final class MarkdownLinkHighlighter: HighlighterType {
     public func highlight(attributedString: NSMutableAttributedString) {
         let string = attributedString.string
         enumerateMatches(regex: type(of: self).LinkRegex, string: string) {
-            let URLString = (string as NSString).substring(with: $0.range(at:2))
+            guard let range = Range($0.range(at: 2)),
+                let url = url(string[range]) else { return }
+            
             let linkAttributes: TextAttributes = [
-                .link: URLString
+                .link: url
             ]
             attributedString.addAttributes(linkAttributes, range: $0.range)
         }
+    }
+    
+    private func url(_ urlString: String) -> String? {
+        var url = URL(string: urlString)
+        
+        if url?.scheme == nil {
+            url = URL(string: "http://\(urlString)")
+        }
+        
+        return url?.absoluteString
     }
 }

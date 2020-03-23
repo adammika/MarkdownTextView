@@ -28,7 +28,7 @@ internal func regex(pattern: String) -> NSRegularExpression {
 }
 
 internal func enumerateMatches(regex: NSRegularExpression, string: String, block: (NSTextCheckingResult) -> Void) {
-    let range = NSRange(location: 0, length: (string as NSString).length)
+    let range = NSRange(location: 0, length: string.count)
     regex.enumerateMatches(in: string, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: range) { (result, _, _) in
         if let result = result {
             block(result)
