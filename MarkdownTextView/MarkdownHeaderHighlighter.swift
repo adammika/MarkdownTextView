@@ -14,7 +14,7 @@ import UIKit
 public final class MarkdownHeaderHighlighter: HighlighterType {
     
     // From markdown.pl v1.0.1 <http://daringfireball.net/projects/markdown/>
-    private static let HeaderRegex = regex(pattern: "^(\\#{1,6})[ \t]*(?:.+?)[ \t]*\\#*\n+")
+    private static let HeaderRegex = regex(pattern: "^(\\#{1,6})[ \t]+(?:.+?)*.*")
     private let attributes: MarkdownAttributes.HeaderAttributes
     
     /**
