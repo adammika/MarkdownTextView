@@ -50,5 +50,5 @@ public final class MarkdownListHighlighter: HighlighterType {
 
 private func listItemRegex(pattern: String) -> NSRegularExpression {
     // From markdown.pl v1.0.1 <http://daringfireball.net/projects/markdown/>
-    return regex(pattern:"^(?:[ ]{0,3}(?:\(pattern))[ \t]+)(.+)\n")
+    return regex(pattern:"^(?:[ ]{0,3}(?:\(pattern))[ \t]+)(.*)")
 }
