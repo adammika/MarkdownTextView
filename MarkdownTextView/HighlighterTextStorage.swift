@@ -79,7 +79,7 @@ public class HighlighterTextStorage: NSTextStorage {
             this was designed for), but would need to be optimized
             for any kind of heavy editing.
         */
-        highlight(range: NSRange(location: 0, length: (string as NSString).length))
+        highlight(range: NSRange(location: 0, length: backingStore.length))
         super.processEditing()
     }
     

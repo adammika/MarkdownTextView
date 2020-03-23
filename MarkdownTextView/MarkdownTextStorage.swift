@@ -31,9 +31,10 @@ public class MarkdownTextStorage: HighlighterTextStorage {
         if let headerAttributes = attributes.headerAttributes {
             add(highlighter: MarkdownHeaderHighlighter(attributes: headerAttributes))
         }
-        add(highlighter:MarkdownLinkHighlighter())
-        add(highlighter:MarkdownListHighlighter(markerPattern: "[*+-]", attributes: attributes.unorderedListAttributes, itemAttributes: attributes.unorderedListItemAttributes))
-        add(highlighter:MarkdownListHighlighter(markerPattern: "\\d+[.]", attributes: attributes.orderedListAttributes, itemAttributes: attributes.orderedListItemAttributes))
+        
+        add(highlighter: MarkdownLinkHighlighter())
+        add(highlighter: MarkdownListHighlighter(markerPattern: "[*+-]", attributes: attributes.unorderedListAttributes, itemAttributes: attributes.unorderedListItemAttributes))
+        add(highlighter: MarkdownListHighlighter(markerPattern: "\\d+[.]", attributes: attributes.orderedListAttributes, itemAttributes: attributes.orderedListItemAttributes))
         
         // From markdown.pl v1.0.1 <http://daringfireball.net/projects/markdown/>
         
